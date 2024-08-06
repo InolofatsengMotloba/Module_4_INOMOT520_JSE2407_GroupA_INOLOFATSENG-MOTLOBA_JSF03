@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div v-if="error">There was an error</div>
+    <div v-if="error">
+      <Error />
+    </div>
     <div v-else-if="product">
       <div class="grid m-10 space-y-5">
         <a>
@@ -57,6 +59,7 @@ import { useRoute, useRouter } from "vue-router";
 import { fetchSingleProduct } from "../api/api";
 import { useProductStore } from "../store/productStore";
 import LoadingCard from "../components/LoadingCard.vue";
+import Error from "../components/Error.vue";
 
 export default {
   name: "ProductDetailView",
@@ -68,6 +71,7 @@ export default {
   },
   components: {
     LoadingCard,
+    Error,
   },
   setup(props) {
     const product = ref(null);
@@ -79,7 +83,7 @@ export default {
     /**
      * Fetches the product details from the API based on the product ID
      * Updates the product ref or sets an error message if the fetch fails
-     * 
+     *
      * @async
      * @function getProduct
      * @returns {Promise}
@@ -101,7 +105,7 @@ export default {
 
     /**
      * Navigates back to the home page
-     * 
+     *
      * @function goBack
      */
     const goBack = () => {
