@@ -29,7 +29,7 @@
           <div class="flex mt-1 space-x-2">
             <div class="justify-start flex-1">
               <span
-                class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10"
+                class="inline-flex items-center rounded-md bg-blue-100 px-2 py-1 text-xs font-medium text-black ring-1 ring-inset ring-blue-700/10"
               >
                 {{ product.category }}
               </span>
@@ -56,12 +56,12 @@
           </div>
           <router-link
             :to="{ name: 'ProductDetailView', params: { id: product.id } }"
-            class="flex rounded-lg justify-center mt-3 bg-green-700 px-3 py-2 text-sm font-medium text-white hover:bg-green-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+            class="flex rounded-lg justify-center mt-3 bg-gray-500 px-3 py-2 text-sm font-medium text-white hover:bg-gray-700 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
           >
             Product Details
           </router-link>
           <button
-            class="flex rounded-lg justify-center mt-3 bg-cyan-700 px-3 py-2 text-sm font-medium text-white hover:bg-cyan-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
+            class="flex rounded-lg justify-center mt-3 bg-violet-900 px-3 py-2 text-sm font-medium text-white hover:bg-violet-500 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
           >
             Add To Cart
           </button>
