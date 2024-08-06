@@ -3,12 +3,14 @@
     <div v-if="error">There was an error</div>
     <div v-else-if="product">
       <div class="grid m-10 space-y-5">
-        <button
-          @click="goBack"
-          class="bg-gray-500 text-white py-2 px-4 rounded"
-        >
-          Back
-        </button>
+        <a>
+          <button
+            @click="goBack"
+            class="bg-gray-500 text-white py-2 px-4 rounded"
+          >
+            Back
+          </button>
+        </a>
         <div
           class="flex flex-col items-center bg-white border-2 border-gray-500 p-4"
         >
