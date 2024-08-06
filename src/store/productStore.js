@@ -7,7 +7,7 @@ export const useProductStore = defineStore("product", () => {
   const error = ref(null);
   const currentCategory = ref("all");
   const currentSortOrder = ref("default");
-  const isLoading = ref(false); // Make isLoading reactive
+  const isLoading = ref(false);
 
   // Computed property to get sorted and filtered products
   const sortedFilteredProducts = computed(() => {
@@ -30,6 +30,12 @@ export const useProductStore = defineStore("product", () => {
     return result;
   });
 
+  /**
+   * Fetches product data from the API and updates the products and filteredProducts
+   * @async
+   * @function fetchProducts
+   * @returns {Promise}
+   */
   const fetchProducts = async () => {
     isLoading.value = true; // Set isLoading to true
     try {
@@ -49,11 +55,21 @@ export const useProductStore = defineStore("product", () => {
     }
   };
 
+  /**
+   * Updates the current category filter and refreshes the filtered products
+   * @function filterByCategory
+   * @param {String} category - The category to filter products by
+   */
   const filterByCategory = (category) => {
     currentCategory.value = category;
     filteredProducts.value = sortedFilteredProducts.value;
   };
 
+  /**
+   * Updates the current sort order and refreshes the filtered products
+   * @function sortProducts
+   * @param {String} order - The sort order to apply ("asc" or "desc")
+   */
   const sortProducts = (order) => {
     currentSortOrder.value = order;
     filteredProducts.value = sortedFilteredProducts.value;
