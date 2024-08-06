@@ -1,6 +1,16 @@
 <template>
   <div class="grid justify-center">
-    <div class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-4">
+    <div
+      v-if="isLoading"
+      class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-4"
+    >
+      <LoadingCard v-for="n in 20" :key="n" />
+    </div>
+
+    <div
+      v-else
+      class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 my-4"
+    >
       <div
         v-for="product in filteredProducts"
         :key="product.id"
@@ -110,9 +120,13 @@
 <script>
 import { onMounted, computed } from "vue";
 import { useProductStore } from "../../store/productStore";
+import LoadingCard from "../LoadingCard.vue";
 
 export default {
   name: "ProductList",
+  components: {
+    LoadingCard,
+  },
   setup() {
     const productStore = useProductStore();
 
@@ -122,6 +136,7 @@ export default {
 
     return {
       filteredProducts: computed(() => productStore.filteredProducts),
+      isLoading: computed(() => productStore.isLoading),
     };
   },
 };

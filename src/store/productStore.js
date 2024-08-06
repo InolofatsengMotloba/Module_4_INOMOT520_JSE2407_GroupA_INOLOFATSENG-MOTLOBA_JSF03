@@ -7,6 +7,7 @@ export const useProductStore = defineStore("product", () => {
   const error = ref(null);
   const currentCategory = ref("all");
   const currentSortOrder = ref("default");
+  const isLoading = ref(false); // Make isLoading reactive
 
   // Computed property to get sorted and filtered products
   const sortedFilteredProducts = computed(() => {
@@ -30,6 +31,7 @@ export const useProductStore = defineStore("product", () => {
   });
 
   const fetchProducts = async () => {
+    isLoading.value = true; // Set isLoading to true
     try {
       let response = await fetch("https://fakestoreapi.com/products");
       if (!response.ok) {
@@ -42,6 +44,8 @@ export const useProductStore = defineStore("product", () => {
       filteredProducts.value = sortedFilteredProducts.value; // Initialize with sorted and filtered list
     } catch (err) {
       error.value = err.message;
+    } finally {
+      isLoading.value = false;e
     }
   };
 
@@ -61,6 +65,7 @@ export const useProductStore = defineStore("product", () => {
     error,
     currentCategory,
     currentSortOrder,
+    isLoading,
     fetchProducts,
     filterByCategory,
     sortProducts,
