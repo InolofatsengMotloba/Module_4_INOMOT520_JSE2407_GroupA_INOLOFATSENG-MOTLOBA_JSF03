@@ -43,7 +43,9 @@
         </div>
       </div>
     </div>
-    <div v-else>Loading...</div>
+    <div v-else class="flex justify-center p-5">
+      <LoadingCard />
+    </div>
   </div>
 </template>
 
@@ -52,6 +54,7 @@ import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { fetchSingleProduct } from "../api/api";
 import { useProductStore } from "../store/productStore";
+import LoadingCard from "../components/LoadingCard.vue";
 
 export default {
   name: "ProductDetailView",
@@ -60,6 +63,9 @@ export default {
       type: [String, Number],
       required: true,
     },
+  },
+  components: {
+    LoadingCard,
   },
   setup(props) {
     const product = ref(null);
