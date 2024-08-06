@@ -4,6 +4,7 @@
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
+        <!-- Home Button / Logo -->
         <a href="/">
           <button class="flex items-center space-x-3 rtl:space-x-reverse">
             <img
@@ -18,6 +19,8 @@
             </span>
           </button>
         </a>
+
+        <!-- NavBar Toggle Button -->
         <button
           @click="toggleNavbar"
           type="button"
@@ -42,6 +45,7 @@
           </svg>
         </button>
 
+        <!-- Menu Items -->
         <div
           :class="{
             hidden: !isNavbarVisible,
