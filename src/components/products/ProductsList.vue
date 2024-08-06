@@ -55,7 +55,7 @@
             </div>
           </div>
           <router-link
-            :to="{ name: 'ProductDetailView', params: { id: product.id }}"
+            :to="{ name: 'ProductDetailView', params: { id: product.id } }"
             class="flex rounded-lg justify-center mt-3 bg-green-700 px-3 py-2 text-sm font-medium text-white hover:bg-green-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
           >
             Product Details
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 import { useProductStore } from "../../store/productStore";
 
 export default {
@@ -85,7 +85,7 @@ export default {
     });
 
     return {
-      products: productStore.products,
+      products: computed(() => productStore.products),
     };
   },
 };
