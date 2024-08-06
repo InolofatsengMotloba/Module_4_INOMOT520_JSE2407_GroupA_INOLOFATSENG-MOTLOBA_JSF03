@@ -2,8 +2,14 @@
   <div
     class="grid lg:flex gap-y-4 gap-x-48 lg:items-start mt-3 mx-auto justify-center"
   >
-    <Filter @filter-category="filterByCategory" />
-    <Sort @sort-order="sortProducts" />
+    <Filter
+      :current-category="productStore.currentCategory"
+      @filter-category="filterByCategory"
+    />
+    <Sort
+      :current-sort-order="productStore.currentSortOrder"
+      @sort-order="sortProducts"
+    />
   </div>
   <ProductsList />
 </template>
@@ -19,7 +25,6 @@ export default {
   components: { ProductsList, Filter, Sort },
   setup() {
     const productStore = useProductStore();
-    // const route = useRoute();
 
     const filterByCategory = (category) => {
       productStore.filterByCategory(category);
@@ -33,7 +38,6 @@ export default {
       filterByCategory,
       sortProducts,
       productStore,
-
     };
   },
 };

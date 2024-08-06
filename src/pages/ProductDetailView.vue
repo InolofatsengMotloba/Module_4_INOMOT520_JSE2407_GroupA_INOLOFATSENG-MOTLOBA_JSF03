@@ -92,13 +92,7 @@ export default {
     });
 
     const goBack = () => {
-      router.push({
-        name: "Home",
-        query: {
-          category: productStore.currentCategory.value,
-          sort: productStore.currentSortOrder.value,
-        },
-      });
+      router.push("/");
     };
 
     return {
