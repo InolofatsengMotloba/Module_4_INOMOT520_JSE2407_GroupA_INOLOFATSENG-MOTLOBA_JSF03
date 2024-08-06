@@ -13,6 +13,7 @@ const routes = [
     path: "/products/:id",
     name: "ProductDetailView",
     component: ProductDetailView,
+    props: true,
   },
   {
     path: "/login",
