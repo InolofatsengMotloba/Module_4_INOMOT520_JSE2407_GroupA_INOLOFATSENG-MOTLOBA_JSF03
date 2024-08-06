@@ -3,9 +3,12 @@
     <div v-if="error">There was an error</div>
     <div v-else-if="product">
       <div class="grid m-10 space-y-5">
-        <a>
-          <button class="bg-gray-500 text-white py-2 px-4 rounded">Back</button>
-        </a>
+        <button
+          @click="goBack"
+          class="bg-gray-500 text-white py-2 px-4 rounded"
+        >
+          Back
+        </button>
         <div
           class="flex flex-col items-center bg-white border-2 border-gray-500 p-4"
         >
@@ -46,7 +49,9 @@
 
 <script>
 import { ref, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { fetchSingleProduct } from "../api/api";
+import { useProductStore } from "../store/productStore";
 
 export default {
   name: "ProductDetailView",
@@ -59,6 +64,9 @@ export default {
   setup(props) {
     const product = ref(null);
     const error = ref(null);
+    const route = useRoute();
+    const router = useRouter();
+    const productStore = useProductStore();
 
     const getProduct = async () => {
       const { response, error: fetchError } = await fetchSingleProduct(
@@ -75,12 +83,23 @@ export default {
       getProduct();
     });
 
+    const goBack = () => {
+      router.push({
+        name: "Home",
+        query: {
+          category: productStore.currentCategory.value,
+          sort: productStore.currentSortOrder.value,
+        },
+      });
+    };
+
     return {
       product,
+      error,
+      goBack,
     };
   },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
