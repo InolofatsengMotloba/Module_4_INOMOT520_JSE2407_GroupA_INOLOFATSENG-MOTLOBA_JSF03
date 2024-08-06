@@ -30,6 +30,13 @@ export default {
   setup(_, { emit }) {
     const categories = ref([]);
 
+    /**
+     * Fetch categories from the API and update the categories ref.
+     * Logs an error if the fetch operation fails.
+     * @async
+     * @function fetchCategories
+     * @returns {Promise<void>}
+     */
     const fetchCategories = async () => {
       const { response, error } = await getCategories();
       if (response) {
