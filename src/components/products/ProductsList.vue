@@ -54,11 +54,12 @@
               </button>
             </div>
           </div>
-          <button
+          <router-link
+            :to="{ name: 'ProductDetailView', params: { id: product.id }}"
             class="flex rounded-lg justify-center mt-3 bg-green-700 px-3 py-2 text-sm font-medium text-white hover:bg-green-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
           >
             Product Details
-          </button>
+          </router-link>
           <button
             class="flex rounded-lg justify-center mt-3 bg-cyan-700 px-3 py-2 text-sm font-medium text-white hover:bg-cyan-900 focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300"
           >
