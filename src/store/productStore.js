@@ -45,7 +45,7 @@ export const useProductStore = defineStore("product", () => {
     } catch (err) {
       error.value = err.message;
     } finally {
-      isLoading.value = false;e
+      isLoading.value = false;
     }
   };
 
