@@ -130,12 +130,25 @@ export default {
   setup() {
     const productStore = useProductStore();
 
+    /**
+     * Fetch products when the component is mounted.
+     * @function onMounted
+     */
     onMounted(() => {
       productStore.fetchProducts();
     });
 
     return {
+      /**
+       * Computed property for filtered products.
+       * @returns {Array} Array of filtered products.
+       */
       filteredProducts: computed(() => productStore.filteredProducts),
+
+      /**
+       * Computed property to check if products are still loading.
+       * @returns {Boolean} Loading state.
+       */
       isLoading: computed(() => productStore.isLoading),
     };
   },
