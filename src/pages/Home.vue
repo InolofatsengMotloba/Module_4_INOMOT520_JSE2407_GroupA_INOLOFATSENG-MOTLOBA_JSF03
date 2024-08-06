@@ -26,10 +26,22 @@ export default {
   setup() {
     const productStore = useProductStore();
 
+    /**
+     * Filters products by the selected category
+     * 
+     * @function filterByCategory
+     * @param category - The selected category to filter products by
+     */
     const filterByCategory = (category) => {
       productStore.filterByCategory(category);
     };
 
+    /**
+     * Sorts products by the selected order
+     * 
+     * @function sortProducts
+     * @param order - The selected order to sort products by
+     */
     const sortProducts = (order) => {
       productStore.sortProducts(order);
     };
