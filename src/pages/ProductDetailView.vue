@@ -76,6 +76,14 @@ export default {
     const router = useRouter();
     const productStore = useProductStore();
 
+    /**
+     * Fetches the product details from the API based on the product ID
+     * Updates the product ref or sets an error message if the fetch fails
+     * 
+     * @async
+     * @function getProduct
+     * @returns {Promise}
+     */
     const getProduct = async () => {
       const { response, error: fetchError } = await fetchSingleProduct(
         props.id
@@ -91,6 +99,11 @@ export default {
       getProduct();
     });
 
+    /**
+     * Navigates back to the home page
+     * 
+     * @function goBack
+     */
     const goBack = () => {
       router.push("/");
     };
