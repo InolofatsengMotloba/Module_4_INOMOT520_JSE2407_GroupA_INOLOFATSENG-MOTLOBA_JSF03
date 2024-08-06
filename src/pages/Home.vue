@@ -5,7 +5,7 @@
     <Filter />
     <Sort />
   </div>
-  <products-list />
+  <ProductsList />
 </template>
 
 <script>
