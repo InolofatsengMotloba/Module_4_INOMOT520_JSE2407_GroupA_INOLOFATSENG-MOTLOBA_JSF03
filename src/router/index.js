@@ -22,6 +22,11 @@ const routes = [
   },
 ];
 
+/**
+ * Creates and configures the Vue Router instance
+ * 
+ * @type {import("vue-router").Router}
+ */
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
