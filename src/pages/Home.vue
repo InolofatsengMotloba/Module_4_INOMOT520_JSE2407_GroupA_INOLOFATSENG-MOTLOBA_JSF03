@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import Filter from '../components/Filter.vue';
-import ProductsList from '../components/products/ProductsList.vue';
-import Sort from '../components/Sort.vue';
+import Filter from "../components/Filter.vue";
+import ProductsList from "../components/products/ProductsList.vue";
+import Sort from "../components/Sort.vue";
 
 export default {
-  components: { ProductsList, Filter, Sort, Filter },
   name: "Home",
+  components: { ProductsList, Filter, Sort },
 };
 </script>
